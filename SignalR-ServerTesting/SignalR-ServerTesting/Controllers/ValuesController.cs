@@ -31,7 +31,7 @@ namespace SignalR_ServerTesting.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            HubTester.SendMethod("abcdeg");
+            HubTester.SendMethod(value);
         }
 
         // PUT api/values/5
