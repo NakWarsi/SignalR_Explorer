@@ -41,7 +41,6 @@ namespace SignalR_ServerTesting
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

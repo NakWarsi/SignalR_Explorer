@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SignalR_ServerTesting
@@ -11,17 +12,19 @@ namespace SignalR_ServerTesting
         HubConnection connection;
         public HubTest()
         {
-            connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:44329/ChatHub")
-                .Build();
-             connection.StartAsync();
+            if (connection == null)
+            {
+                connection = new HubConnectionBuilder()
+                    .WithUrl("http://localhost:64354/chatHub")
+                    .Build();
+                connection.StartAsync();
+            }
         }
-
-        public async void  SendMethod(string msg)
+        public async void SendMethod(string msg)
         {
             await connection.InvokeAsync("SendMessage",
                 "abc", msg);
+            await connection.StopAsync();
         }
-
     }
 }
