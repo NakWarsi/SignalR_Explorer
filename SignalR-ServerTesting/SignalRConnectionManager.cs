@@ -11,7 +11,7 @@ namespace SignalR_ServerTesting
         public HubConnection ConnectHub()
         {
             HubConnection connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:64354/chatHub")
+                .WithUrl("http://localhost:5000/chatHub")
                 .Build();
             connection.StartAsync();
             return connection;
