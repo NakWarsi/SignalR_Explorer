@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SignalR_ServerTesting.SignalRHubManager;
 
 namespace SignalR_ServerTesting.Controllers
 {
@@ -10,19 +11,19 @@ namespace SignalR_ServerTesting.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private HubTest HubTester = new HubTest();
+        private SignalRHub HubTester = new SignalRHub();
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<ActionResult<IEnumerable<string>>> Get()
         {
-            HubTester.SendMethod("abcdeg");
+            await HubTester.SendMethod("abc", "xyzzzz");
             return new string[] { "value1", "value2" };
         }
         // POST api/values
         [HttpPost]
         public void Post([FromBody] string value)
         {
-            HubTester.SendMethod(value);
+           // HubTester.SendMethod(value);
         }
     }
 }
