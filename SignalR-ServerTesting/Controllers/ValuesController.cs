@@ -17,7 +17,6 @@ namespace SignalR_ServerTesting.Controllers
         {
             HubTester.SendMethod("abcdeg");
             return new string[] { "value1", "value2" };
-
         }
         // POST api/values
         [HttpPost]

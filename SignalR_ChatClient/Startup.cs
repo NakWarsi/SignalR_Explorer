@@ -32,8 +32,6 @@ namespace SignalR_ChatClient
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSignalR();
@@ -51,7 +49,6 @@ namespace SignalR_ChatClient
                 app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
             app.UseStaticFiles();
 
             app.UseSignalR(routes =>
