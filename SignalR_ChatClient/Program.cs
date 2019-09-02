@@ -7,7 +7,7 @@ using SignalR_ChatClient.Hubs;
 
 namespace SignalR_ChatClient
 {
-    public class Client
+    public class Program
     {
         public static HubConnection connection;
         public ChatHub chathub= new ChatHub();
